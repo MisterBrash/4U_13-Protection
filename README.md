@@ -16,7 +16,7 @@ With normal variables, we have no way of _hiding_ the value. Objects, however, h
 
 👉 Any _member_ of an object can be **`+ public`** (default), **`- private`** (hidden), or **`# protected`** (read-only).
 
-For example, the `contents` of the `Stack` class should be hidden (_private_) and the `capacity` of the `Stack` should be read-only (_protected_). **More on the `Stack` later`**.
+For example, the `contents` of the `Stack` class should be hidden (_private_) and the `capacity` of the `Stack` should be read-only (_protected_). **More on the `Stack` later**.
 
 ### Example: `User`
 
