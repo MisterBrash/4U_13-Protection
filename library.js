@@ -2,7 +2,7 @@
  *  Author: Mr. Squirrel 🐿️
  * 
  *  A useful library of various functions.
- *  Feel free to copy them into your code file or 
+ *  Feel free to copy them into your code file
  */
 
 'use strict';
@@ -28,5 +28,3 @@ function randInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-module.exports = { round, randInt };

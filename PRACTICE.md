@@ -1,12 +1,10 @@
-# 13 - Protection (Finalize the Stack Class)
+# 13 - Protection Practice (Finalize the Stack Class)
 
 ###### ICS4U - Mr. Brash 🐿️
 
 ##### 🔙 [To the lesson](README.md)
 
 ---
-
-### The Stack
 
 Hopefully you have a working definition of a `Stack`. If you are behind or need assistance, please see your teacher for extra help!
 
@@ -35,6 +33,7 @@ Your job, now that you know about _Protection_ and _getters_/_setters_, is:
 4. Add a _getter_ that allows us to see the `capacity`.
 5. Add a _setter_ that allows us to modify the `capacity` with certain limitations:
     1. The new capacity must be a positive whole number > 0.
+        1. We can ensure a whole number by using `Math.round()`
     2. It cannot go below the current length of `Stack.#contents`
 
 Using that _new_ definition, we should be _unable_ to see the `.contents` array. Test it:
@@ -71,6 +70,15 @@ Hopefully you did it! A fully functional `Stack` object. High five!   👋 🙌 
   
 Keep this code safe - you're going to need it later.
 
+---
+
+### Finished early?
+
+  - Take a look at some [coding challenges](https://edabit.com/challenges) or maybe a [capture the flag (CTF)](https://cryptohack.org/) hacking challenge.
+  - Prefer a [gamified coding challenge](https://www.codingame.com/start/)?
+  - Or maybe you want to [learn more about coding on your own](https://exercism.org/)?
+
+---
 
 <br>
 🐿️
