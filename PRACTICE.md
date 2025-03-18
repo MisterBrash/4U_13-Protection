@@ -1,57 +1,76 @@
-# Your Task (2.7 - Protection)
+# 13 - Protection (Finalize the Stack Class)
 
 ###### ICS4U - Mr. Brash 🐿️
 
-  - 🔙 [To the lesson](README.md)
+##### 🔙 [To the lesson](README.md)
+
+---
+
+### The Stack
+
+Hopefully you have a working definition of a `Stack`. If you are behind or need assistance, please see your teacher for extra help!
+
+---
+
+The `.contents` of the `Stack` class should be _hidden_ (private). We shouldn't be able to access it.
+
+Right now, we can easily see or manipulate the contents and capacity:
+
+```JS
+let sample = new Stack([5, 12, 7]);
+
+console.log(sample.contents);   // [5, 12, 7]  - we shouldn't be able to see that
+sample.contents[7] = "Sucker";  // Well that would be bad
+sample.contents = new Array();  // Uh oh...
+sample.capacity = -55;          // We're in trouble
+```
+
+> 🤔 Isn't the purpose of a Stack that we can only see the top item? 
+
+Your job, now that you know about _Protection_ and _getters_/_setters_, is:
+
+1. Copy over your definition of the `Stack` class from lesson 12.
+2. Modify the `Stack` class so that it _hides_ the `.contents` _and_ the `.capacity`. To do this, you will use the `#` operator.
+3. You will need to go through every function that utilizes or changes either of those members and include the `#` operator.
+4. Add a _getter_ that allows us to see the `capacity`.
+5. Add a _setter_ that allows us to modify the `capacity` with certain limitations:
+    1. The new capacity must be a positive whole number > 0.
+    2. It cannot go below the current length of `Stack.#contents`
+
+Using that _new_ definition, we should be _unable_ to see the `.contents` array. Test it:
+
+```JS
+// A stack with 2 items and a max of 3
+let my_stack = new Stack([9, 2], 3);  
+
+my_stack.contents;   // undefined!
+
+my_stack.is_full();  // false
+my_stack.push("Pizza");
+my_stack.push("Hello");
+my_stack.peek();     // "Pizza"
+my_stack.is_full();  // true
+```
+
+Some more test code:
+```JS
+let plates = new Stack([5, 3, 1], 5);
+
+// Try to reduce the capacity below 3
+plates.max_size = 1;   // Nothing should happen
+console.log(plates.max_size);       // 5
+
+// Change it to 3
+plates.max_size = 3;   // No problem!
+plates.is_full();      // true
+
+// Try a decimal number or String or negative number...
+```
+
+Hopefully you did it! A fully functional `Stack` object. High five!   👋 🙌 👋
+  
+Keep this code safe - you're going to need it later.
 
 
-## A Vehicle 🚘
-
-Now it's your turn to try creating a class with some private or protected members. You will need to decide which members require `#` and when to create a `get` and/or `set` to manipulate protected members.
-
-> `Important Note:` The task is detailed. Read it carefully and try not to deviate from it. While independent learning is important in this course, so is knowing when to ask for assistance. Talk to each other, utilize the Internet, and ask your teacher for clarification and help.
-
-### The Vehicle Class
-You are going to define a `Vehicle` that fits the diagram and description below:
-
-![vehicle class diagram](assets/vehicle.png)
-
-Notice the `+`, `-`, and `#`? That means **public**, **private**, and **protected**, respectively.
-
-### The `Vehicle` class has the following PUBLIC members:
-- `colour` (a String)
-- `doors` (a Number representing the number of doors; defaults to 1)
-- `seats` (a Number representing the number of seats; defaults to 1)
-- `seatbelts` (a Boolean if this vehicle has seatbelts or not)
-
-### It has the following PROTECTED members:
-- `locked` Read-only (a Boolean representing if the vehicle is locked)
-- `gas` Read-only (a Number representing the amount of gas left in the vehicle to the nearest hundredth)
-- `odometer` Read-only (a Number representing the number of Km driven)
-- `tank_size` Read-only (a Number representing the maximum L of gas)
-- `gas_mileage` Read-only (a Number in L/100Km representing the efficiency of the vehicle)
-
-### It has the following PRIVATE member:
-- `serial_number` (a String that is the registered serial number of the vehicle)
-
-### The public methods are described as follows:
-- The `constructor` will set the colour, serial number, doors, seats, seatbelts, tank_size, and gas_mileage. The gas and odometer will default to zero.
-  - gas_mileage is a value in L/100km. For example, a typical vehicle might use 9.5L/100km so the gas_mileage would be 9.5
-- `lock()` - Set the status of the vehicle to _locked_
-- `unlock()` - Set the status of the vehicle to _unlocked_
-- `drive(km)` - Based on the `gas_mileage` of the vehicle (in L/100Km) drive the number of Km given - _if there is enough gas_. Add the mileage to the odometer and subtract the appropriate amount of gasoline from the tank (**_both_ rounded to the nearest hundredth**). 
-  - If there is not enough gas for the full trip, drive until the tank is empty, adjusting the odometer and gas level appropriately (**_both_ rounded to the nearest hundredth**).
-  - No matter what, _return_ the new value on the odometer. If you go nowhere (already out of gas), still return the value on the odometer. 
-  - `km` will always be a value >= 0.
-- `fill_up(gas)` - Add the amount of `gas` to the tank, without overfilling. `gas` will always be a positive number.
-
-This last one is _not_ in the Class diagram. The engineers added it last-minute.
-- Create a "getter" called `range`
-  - Based on the `gas_mileage` and the amount of `gas` left in the tank, `range` will provide the amount of Km we can drive before we will run out of gas, rounded to the nearest whole Km.
-
-You might need to think about the `.drive(km)` and `range` methods. For example, Mr. Brash's Mazda 3 currently has an average gas mileage of 6.8 L/100Km. That means he'll use 0.068 L per Km. If he were to drive 50 Km, he'll use approximately 50 * 0.068 = 3.4 L of gasoline.
-
-Make sure that you test your class thoroughly. Feel free to ask for assistance, if necessary!
-
-<br><br><br>
+<br>
 🐿️
