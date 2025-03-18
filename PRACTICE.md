@@ -10,9 +10,9 @@ Hopefully you have a working definition of a `Stack`. If you are behind or need 
 
 ---
 
-The `.contents` of the `Stack` class should be _hidden_ (private). We shouldn't be able to access it.
+#### The Problem:
 
-Right now, we can easily see or manipulate the contents and capacity:
+We can see or manipulate the `contents` and `capacity`:
 
 ```JS
 let sample = new Stack([5, 12, 7]);
@@ -23,20 +23,25 @@ sample.contents = new Array();  // Uh oh...
 sample.capacity = -55;          // We're in trouble
 ```
 
-> 🤔 Isn't the purpose of a Stack that we can only see the top item? 
+> 🤔 Isn't the purpose of a Stack to only see the top item? 
 
-Your job, now that you know about _Protection_ and _getters_/_setters_, is:
+⚠ The `.contents` of the `Stack` class should be _hidden_ (private). We shouldn't be able to access it.
+
+Your job, now that you know about _Protection_ and _getters_/_setters_, is to finalize your `Stack` class.
+
+![Protected Stack Class](./assets/ProtectedStack.png)
 
 1. Copy over your definition of the `Stack` class from lesson 12.
-2. Modify the `Stack` class so that it _hides_ the `.contents` _and_ the `.capacity`. To do this, you will use the `#` operator.
+2. Modify the `Stack` class so that it _hides_ the `.contents` protects (validates) the `.capacity`. To do this, you will use the `#` operator.
 3. You will need to go through every function that utilizes or changes either of those members and include the `#` operator.
 4. Add a _getter_ that allows us to see the `capacity`.
 5. Add a _setter_ that allows us to modify the `capacity` with certain limitations:
     1. The new capacity must be a positive whole number > 0.
         1. We can ensure a whole number by using `Math.round()`
     2. It cannot go below the current length of `Stack.#contents`
+6. Notice that `size`, `is_empty`, `is_full`, and `space` are listed as protected? That's because they are more like _properties_ instead of _functions_. You will need to create _setters_ for these, rather than the functions (methods) they were before.
 
-Using that _new_ definition, we should be _unable_ to see the `.contents` array. Test it:
+Using this _new_ definition, we should be _unable_ to see the `.contents` array. Test it:
 
 ```JS
 // A stack with 2 items and a max of 3
