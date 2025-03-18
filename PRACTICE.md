@@ -31,6 +31,8 @@ Your job, now that you know about _Protection_ and _getters_/_setters_, is to fi
 
 ![Protected Stack Class](./assets/ProtectedStack.png)
 
+Note: `capacity` will be validated on set.
+
 1. Copy over your definition of the `Stack` class from lesson 12.
 2. Modify the `Stack` class so that it _hides_ the `.contents` protects (validates) the `.capacity`. To do this, you will use the `#` operator.
 3. You will need to go through every function that utilizes or changes either of those members and include the `#` operator.
@@ -39,7 +41,7 @@ Your job, now that you know about _Protection_ and _getters_/_setters_, is to fi
     1. The new capacity must be a positive whole number > 0.
         1. We can ensure a whole number by using `Math.round()`
     2. It cannot go below the current length of `Stack.#contents`
-6. Notice that `size`, `is_empty`, `is_full`, and `space` are listed as protected? That's because they are more like _properties_ instead of _functions_. You will need to create _setters_ for these, rather than the functions (methods) they were before.
+6. Notice that `size`, `is_empty`, `is_full`, and `space` are listed as protected? That's because they are more like _properties_ instead of _functions_. You will need to create _getters_ for these, rather than the functions (methods) they were before.
 
 Using this _new_ definition, we should be _unable_ to see the `.contents` array. Test it:
 
