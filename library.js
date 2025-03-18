@@ -1,3 +1,10 @@
+/**
+ *  Author: Mr. Squirrel 🐿️
+ * 
+ *  A useful library of various functions.
+ *  Feel free to copy them into your code file or 
+ */
+
 'use strict';
 
 /**

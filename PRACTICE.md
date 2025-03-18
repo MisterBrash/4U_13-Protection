@@ -2,9 +2,8 @@
 
 ###### ICS4U - Mr. Brash 🐿️
 
-  - [Jump back to the lesson](README.md)
+  - 🔙 [To the lesson](README.md)
 
-The [README](README.md) file was getting long so the task was placed in a separate file.
 
 ## A Vehicle 🚘
 
@@ -54,6 +53,5 @@ You might need to think about the `.drive(km)` and `range` methods. For example,
 
 Make sure that you test your class thoroughly. Feel free to ask for assistance, if necessary!
 
-Sample test code might be made available in the future.
 <br><br><br>
 🐿️
